@@ -1,13 +1,25 @@
-import React from "react";
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import {View, Text, StyleSheet, ScrollView, FlatList} from 'react-native';
 
-const GoalItem = ({ item, onRemove }) => {
+function GoalItem(props) {
     return(
-        <View>
-            <Text>{item.text}</Text>
-            <Button title = 'Delete' onPress={onRemove}/>
-        </View>
+
+        <ScrollView style={styles.listcontainer}>
+        <Text style={styles.enteredText}>{'\u2764'} {props.text}</Text>
+        </ScrollView>
+
     );
 };
 
 export default GoalItem;
+
+const styles = StyleSheet.create({
+    listcontainer: {
+        backgroundColor: 'pink',
+        margin: 1,
+        paddingBottom: 1
+      },
+    enteredText: {
+        padding: 5,
+        fontSize: 20
+      }
+});
